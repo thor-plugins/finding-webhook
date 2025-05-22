@@ -1,11 +1,14 @@
-module github.com/thor-plugin/template
+module github.com/thor-plugin/finding-webhook
 
-go 1.24.2
-
-require github.com/NextronSystems/thor-plugin v0.0.0-20250320142636-1a0a2af9451a
+go 1.24.3
 
 require (
-	github.com/NextronSystems/jsonlog v0.0.0-20250205144531-15ac5e18da0c // indirect
+	github.com/NextronSystems/finding-store v0.0.0-20250528144547-4ada8f4b318b
+	github.com/NextronSystems/jsonlog v0.0.0-20250523073520-69e056dcf33d
+	github.com/NextronSystems/thor-plugin v0.0.0-20250602110752-3e5af48381fc
+)
+
+require (
 	github.com/google/uuid v1.6.0 // indirect
 	golang.org/x/exp v0.0.0-20240213143201-ec583247a57a // indirect
 	golang.org/x/mod v0.15.0 // indirect

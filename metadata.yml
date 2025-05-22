@@ -1,6 +1,6 @@
-name: Plugin Name
-author: Plugin Author
+name: Finding Webhook Uploader
+author: Max Altgelt
 version: v1.0.0
 description: |
-  This is a description of the plugin.
+  Uploads findings to a webhook URL.
 requires_thor: v11.0.0
