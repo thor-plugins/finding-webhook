@@ -42,14 +42,14 @@ func main() {
 			return
 		}
 
-		event, err := parser.ParseEvent([]byte(request.FormValue(FindingField)))
+		event, err := parser.ParseEvent([]byte(request.FormValue(AssessmentField)))
 		if err != nil {
 			writer.WriteHeader(http.StatusBadRequest)
 			_, _ = fmt.Fprintf(writer, "could not decode finding: %s", err.Error())
 			slog.Info("could not decode finding", "error", err.Error())
 			return
 		}
-		finding, ok := event.(*thorlog.Finding)
+		finding, ok := event.(*thorlog.Assessment)
 		if !ok {
 			writer.WriteHeader(http.StatusBadRequest)
 			_, _ = fmt.Fprintf(writer, "invalid finding type: %T", event)

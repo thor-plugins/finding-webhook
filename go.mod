@@ -3,9 +3,9 @@ module github.com/thor-plugin/finding-webhook
 go 1.24.3
 
 require (
-	github.com/NextronSystems/finding-store v0.0.0-20250528144547-4ada8f4b318b
-	github.com/NextronSystems/jsonlog v0.0.0-20250523073520-69e056dcf33d
-	github.com/NextronSystems/thor-plugin v0.0.0-20250602110752-3e5af48381fc
+	github.com/NextronSystems/finding-store v0.0.0-20260220100644-1c2a5554f9a5
+	github.com/NextronSystems/jsonlog v1.0.0-alpha.0.20260217085034-6cb530d8ac82
+	github.com/NextronSystems/thor-plugin v0.0.0-20260219124122-4903ff22b9c4
 )
 
 require (

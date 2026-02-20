@@ -5,6 +5,6 @@ package main
 
 // Fields in the multipart form data that is sent to the server
 const (
-	FindingField = "finding" // Contains a thorlog.Finding object, JSON encoded
-	ContentField = "content" // Contains the object content, if any. If no content exists, should not be set.
+	AssessmentField = "assessment" // Contains a thorlog.Assessment object, JSON encoded
+	ContentField    = "content"    // Contains the object content, if any. If no content exists, should not be set.
 )
