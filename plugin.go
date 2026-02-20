@@ -30,8 +30,8 @@ type findingUploader struct {
 	ServerUrl string
 }
 
-func (f findingUploader) UploadFile(logger thor.Logger, object thor.MatchedObject) {
-	if object.Finding.Score <= 0 {
+func (f findingUploader) UploadFile(logger thor.Logger, object thor.AssessedObject) {
+	if object.Assessment.Score <= 0 {
 		return // No need to upload if the score is 0
 	}
 
@@ -49,12 +49,12 @@ func (f findingUploader) UploadFile(logger thor.Logger, object thor.MatchedObjec
 			_ = multipartWriter.Close()
 			_ = pipeWriter.Close()
 		}()
-		part, err := multipartWriter.CreateFormField(FindingField)
+		part, err := multipartWriter.CreateFormField(AssessmentField)
 		if err != nil {
 			logger.Error("Failed to create multipart form field", "error", err.Error())
 			return
 		}
-		err = json.NewEncoder(part).Encode(object.Finding)
+		err = json.NewEncoder(part).Encode(object.Assessment)
 		if err != nil {
 			logger.Error("Failed to write JSON object to multipart form field", "error", err.Error())
 			return
@@ -63,7 +63,7 @@ func (f findingUploader) UploadFile(logger thor.Logger, object thor.MatchedObjec
 		if object.Content == nil {
 			return
 		}
-		if _, isProcess := object.Finding.Subject.(*thorlog.Process); isProcess {
+		if _, isProcess := object.Assessment.Subject.(*thorlog.Process); isProcess {
 			// Processes have a content, but since it's not a compact set, but separated into memory regions,
 			// trying to copy it as a whole would fail once the first unmapped region is reached.
 			return
